@@ -72,52 +72,67 @@
         
         <!-- Products Grid -->
         <div class="products-grid-member">
-            <div id="selected-products-list" class="mb-4" style="display: none;">
+            <div id="selected-products-list-member" class="mb-4">
                 <h4>Selected Products:</h4>
-                <div id="selected-products-container" class="d-flex flex-wrap gap-2"></div>
+                <div id="selected-products-container-member" class="d-flex flex-wrap gap-2"></div>
             </div>
             
             <!-- Available Products -->
             <div id="available-products">
                 <!-- Row 1 -->
                 <div class="row mb-3">
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="ANNUITY">ANNUITY</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="AUTOMOBILE">AUTOMOBILE</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="CANCER">CANCER</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="CRITICAL ILLNESS">CRITICAL ILLNESS</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="ANNUITY">ANNUITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member selected" data-product="AUTOMOBILE">AUTOMOBILE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="CANCER">CANCER</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="CRITICAL ILLNESS">CRITICAL ILLNESS</div></div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="DISABILITY">DISABILITY</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="EARTHQUAKE">EARTHQUAKE</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="GROUP">GROUP</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="HEALTH">HEALTH</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="DISABILITY">DISABILITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="EARTHQUAKE">EARTHQUAKE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="GROUP">GROUP</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member selected" data-product="HEALTH">HEALTH</div></div>
                 </div>
                 
                 <!-- Row 2 -->
                 <div class="row mb-3">
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="HOME OWNERS">HOME OWNERS</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="LIABILITY">LIABILITY</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product text-primary" data-product="LIFE" data-special="life">LIFE</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="LONG TERM CARE">LONG TERM CARE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member selected" data-product="HOME OWNERS">HOME OWNERS</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="LIABILITY">LIABILITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="LIFE" style="font-weight: bold;">LIFE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="LONG TERM CARE">LONG TERM CARE</div></div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="MOTORCYCLE">MOTORCYCLE</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="RV">RV</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="TRAVEL">TRAVEL</div></div>
-                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="WORKMAN COMP">WORKMAN COMP</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="MOTORCYCLE">MOTORCYCLE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="RV">RV</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="TRAVEL">TRAVEL</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member" data-product="WORKMAN COMP">WORKMAN COMP</div></div>
                 </div>
                 
                 <!-- Row 3 - Custom Product Input -->
                 <div class="row mb-3">
                     <div class="col-md-8 mb-2">
-                        <div class="product-input-box" style="height: 60px; display: flex; align-items: center;">
-                            <input type="text" id="custom-product-input" placeholder="ENTER IN YOUR OWN PRODUCT...." class="form-control" style="border: none; height: 100%; background: transparent;">
+                        <div class="product-input-box-setup border-radius-4" style="height: 60px; display: flex; align-items: center;">
+                            <input type="text" id="custom-product-input-member" placeholder="ENTER IN YOUR OWN PRODUCT...." class="form-control" style="border: none; height: 100%; background: transparent;">
                         </div>
                     </div>
                     <div class="col-md-4 mb-2">
-                        <button type="button" id="add-custom-product" class="btn btn-success w-100" style="height: 60px;">ADD PRODUCT</button>
+                        <button type="button" id="add-custom-product-member" class="btn btn-outline-dark w-100" style="height: 60px;">ADD PRODUCT</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Product Details Section -->
+        <div id="product-details-section-member" class="mt-5">
+            <div class="text-center mb-4">
+                <h2>Department Contact Details for Selected Products</h2>
+                <p class="text-muted">Update your department contact information for each selected insurance product</p>
+            </div>
+            <div id="selected-products-details-member"></div>
+            
+            <!-- Save/Cancel Buttons -->
+            <div class="text-center mt-4 mb-5">
+                <button type="button" class="btn btn-outline-dark me-3" id="save-profile-changes">Save All Changes</button>
+                <button type="button" class="btn btn-outline-secondary" id="cancel-profile-changes">Cancel Changes</button>
             </div>
         </div>
     </div>
@@ -126,6 +141,7 @@
         <p class="text-center mb-0">&copy; 2025 Insurance Directory. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>\n    <script src="js/product-selection.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/product-selection.js"></script>
 </body>
 </html>

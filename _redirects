@@ -1,0 +1,15 @@
+# Netlify redirects file
+# Clean URL redirects
+/home /index.html 200
+/member-login /member-profile.html 200
+/signup /become-a-member.html 200
+/insurance-types /life-insurance-types.html 200
+/contact /term-life-contact.html 200
+
+# Handle trailing slashes
+/home/ /index.html 200
+/member-login/ /member-profile.html 200
+/signup/ /become-a-member.html 200
+
+# Fallback for 404s - redirect to homepage
+/* /index.html 404

@@ -440,7 +440,7 @@ $(document).ready(function() {
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-address" class="form-label"><strong>Department Mailing Address:</strong></label>
-                        <textarea id="${productName.toLowerCase().replace(/\s+/g, '-')}-address" class="form-control" rows="3">${data.address}</textarea>
+                        <textarea id="${productName.toLowerCase().replace(/\s+/g, '-')}-address" class="form-control" rows="4">${data.address}</textarea>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-phone" class="form-label"><strong>Department Phone & Prompts:</strong></label>
@@ -450,5 +450,228 @@ $(document).ready(function() {
                 </div>
             </div>
         `;
+    }
+});
+
+// Member Profile Page Product Selection and Department Contact Forms
+$(document).ready(function() {
+    // Only run on member profile page
+    if ($('#product-details-section-member').length) {
+        
+        // Product selection handling for member profile page
+        $('.selectable-product-member').click(function() {
+            $(this).toggleClass('selected');
+            updateProductDetailsMember();
+        });
+        
+        // Custom product addition for member profile
+        $('#add-custom-product-member').click(function() {
+            var customProduct = $('#custom-product-input-member').val().trim();
+            if (customProduct) {
+                // Find the best row to add to (try to fill incomplete rows first)
+                var lastProductRow = $('.products-grid-member .row').not(':last');
+                var targetRow = null;
+                
+                // Check if any row has less than 4 products
+                lastProductRow.each(function() {
+                    if ($(this).find('.col-md-3').length < 4) {
+                        targetRow = $(this);
+                        return false; // Break loop
+                    }
+                });
+                
+                // If no incomplete row found, create new row before custom input row
+                if (!targetRow) {
+                    targetRow = $('<div class="row mb-3"></div>');
+                    $('.products-grid-member .row:last').before(targetRow);
+                }
+                
+                // Create the new product box with proper styling
+                var customProductBox = $('<div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-member selected" data-product="' + customProduct.toUpperCase() + '">' + customProduct.toUpperCase() + '</div></div>');
+                
+                // Add click handler to the new custom product
+                customProductBox.find('.selectable-product-member').click(function() {
+                    $(this).toggleClass('selected');
+                    updateProductDetailsMember();
+                });
+                
+                // Add to the target row
+                targetRow.append(customProductBox);
+                
+                // Clear the input
+                $('#custom-product-input-member').val('');
+                
+                // Update product details to include the new custom product
+                updateProductDetailsMember();
+            }
+        });
+        
+        // Allow Enter key to add custom product
+        $('#custom-product-input-member').keypress(function(e) {
+            if (e.which == 13) {
+                $('#add-custom-product-member').click();
+            }
+        });
+        
+        // Initialize with preselected products showing their forms
+        updateProductDetailsMember();
+        updateSelectedProductsPillsMember();
+        
+        // Save/Cancel button handlers
+        $('#save-profile-changes').click(function() {
+            // Collect all form data and show success message
+            var selectedProducts = [];
+            $('.selectable-product-member.selected').each(function() {
+                selectedProducts.push($(this).data('product'));
+            });
+            
+            alert('Profile changes saved successfully!\n\nSelected Products: ' + selectedProducts.join(', '));
+        });
+        
+        $('#cancel-profile-changes').click(function() {
+            if (confirm('Are you sure you want to cancel all changes? This will reset to your original settings.')) {
+                // Reset to original preselected state
+                $('.selectable-product-member').removeClass('selected');
+                $('.selectable-product-member[data-product="AUTOMOBILE"]').addClass('selected');
+                $('.selectable-product-member[data-product="HEALTH"]').addClass('selected');
+                $('.selectable-product-member[data-product="HOME OWNERS"]').addClass('selected');
+                $('.selectable-product-member[data-product="LIFE"]').addClass('selected');
+                
+                updateProductDetailsMember();
+                updateSelectedProductsPillsMember();
+            }
+        });
+        
+        function updateProductDetailsMember() {
+            var selectedProducts = [];
+            $('.selectable-product-member.selected').each(function() {
+                selectedProducts.push($(this).data('product'));
+            });
+            
+            var productDetailsSection = $('#product-details-section-member');
+            var productDetailsContainer = $('#selected-products-details-member');
+            
+            if (selectedProducts.length > 0) {
+                productDetailsSection.show();
+                productDetailsContainer.empty();
+                
+                selectedProducts.forEach(function(product) {
+                    var productDetails = generateMemberProductDetailsForm(product);
+                    productDetailsContainer.append(productDetails);
+                });
+            } else {
+                productDetailsSection.hide();
+            }
+            
+            updateSelectedProductsPillsMember();
+        }
+        
+        function updateSelectedProductsPillsMember() {
+            var selectedProducts = [];
+            $('.selectable-product-member.selected').each(function() {
+                selectedProducts.push($(this).data('product'));
+            });
+            
+            var pillsContainer = $('#selected-products-container-member');
+            var pillsSection = $('#selected-products-list-member');
+            
+            if (selectedProducts.length > 0) {
+                pillsSection.show();
+                pillsContainer.empty();
+                
+                selectedProducts.forEach(function(product) {
+                    var pill = $(`<span class="badge bg-success text-white fs-6 px-3 py-2 me-2 mb-2 position-relative">${product} <button type="button" class="btn-close btn-close-white ms-2" style="font-size: 0.7em;" data-product="${product}"></button></span>`);
+                    
+                    // Add click handler for X button
+                    pill.find('.btn-close').click(function() {
+                        var productToRemove = $(this).data('product');
+                        $('.selectable-product-member[data-product="' + productToRemove + '"]').removeClass('selected');
+                        updateProductDetailsMember();
+                    });
+                    
+                    pillsContainer.append(pill);
+                });
+            } else {
+                pillsSection.hide();
+            }
+        }
+        
+        function generateMemberProductDetailsForm(productName) {
+            // Pre-populated EXISTING member data for each specific product type
+            var existingMemberData = {
+                'LIFE': {
+                    email: 'life.claims@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nLife Insurance Department\nSuite 300\nLouisville, KY 40018',
+                    phone: '800-800-5555 (Hit option 3, then option 1, then option 2)'
+                },
+                'HEALTH': {
+                    email: 'health.services@acmeinsurance.com', 
+                    address: '15210 Clover Blvd.\nHealth Insurance Department\nSuite 400\nLouisville, KY 40018',
+                    phone: '800-800-9999 (Hit option 1, option 1, then option 3)'
+                },
+                'AUTOMOBILE': {
+                    email: 'auto.claims@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nAuto Insurance Department\nSuite 100\nLouisville, KY 40018',
+                    phone: '800-800-4444 (Hit option 2, then option 4, then option 1)'
+                },
+                'HOME OWNERS': {
+                    email: 'homeowners.claims@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nProperty Insurance Department\nSuite 500\nLouisville, KY 40018',
+                    phone: '800-800-7777 (Hit option 7, then option 2, then option 1)'
+                },
+                'DISABILITY': {
+                    email: 'disability.support@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nDisability Claims Department\nSuite 450\nLouisville, KY 40018', 
+                    phone: '800-800-8888 (Hit option 5, then option 1, then option 1)'
+                },
+                'ANNUITY': {
+                    email: 'annuity.services@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nAnnuity Department\nSuite 200\nLouisville, KY 40018',
+                    phone: '800-800-7777 (Hit option 1, then option 3, then option 2)'
+                },
+                'CANCER': {
+                    email: 'cancer.benefits@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nCancer Insurance Department\nSuite 350\nLouisville, KY 40018',
+                    phone: '800-800-6666 (Hit option 4, then option 2, then option 1)'
+                },
+                'CRITICAL ILLNESS': {
+                    email: 'critical.claims@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nCritical Illness Department\nSuite 375\nLouisville, KY 40018',
+                    phone: '800-800-3333 (Hit option 6, then option 1, then option 3)'
+                },
+                'WORKMAN COMP': {
+                    email: 'workcomp.claims@acmeinsurance.com',
+                    address: '15210 Clover Blvd.\nWorkers Compensation Dept\nSuite 250\nLouisville, KY 40018',
+                    phone: '800-800-2222 (Hit option 8, then option 1, then option 2)'
+                }
+            };
+            
+            var data = existingMemberData[productName] || {
+                email: productName.toLowerCase().replace(/\s+/g, '') + '@acmeinsurance.com',
+                address: '15210 Clover Blvd.\n' + productName + ' Department\nLouisville, KY 40018', 
+                phone: '800-800-1111 (Contact for ' + productName + ' services)'
+            };
+            
+            return `
+                <div class="product-detail-form border rounded p-4 mb-4 bg-light">
+                    <h4 class="text-primary mb-3">${productName} Department Contact Details</h4>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-email-member" class="form-label"><strong>Department Email Address:</strong></label>
+                            <input type="email" id="${productName.toLowerCase().replace(/\s+/g, '-')}-email-member" class="form-control" value="${data.email}">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-address-member" class="form-label"><strong>Department Mailing Address:</strong></label>
+                            <textarea id="${productName.toLowerCase().replace(/\s+/g, '-')}-address-member" class="form-control" rows="4">${data.address}</textarea>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-phone-member" class="form-label"><strong>Department Phone & Prompts:</strong></label>
+                            <input type="tel" id="${productName.toLowerCase().replace(/\s+/g, '-')}-phone-member" class="form-control" value="${data.phone}">
+                            <small class="form-text text-muted">Include prompts to shorten wait times</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
     }
 });

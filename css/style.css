@@ -986,3 +986,8 @@ input[readonly] {
 .info-btn:hover {
     background-color: #f8f9fa;
 }
+
+
+#custom-product-input-member {
+    box-shadow: none;
+}
