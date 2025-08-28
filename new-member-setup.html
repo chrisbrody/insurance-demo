@@ -6,6 +6,12 @@
     <title>New Member Setup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-control:focus {
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -31,15 +37,18 @@
 
     <main>
         <div class="setup-header">
-            <h1>New Member Setup</h1>
-            <p>Complete the following steps to set up your member account</p>
+            <div class="congratulations-box">
+                <h1>Congratulations on becoming a member!</h1>
+                <p>Here is your login link: <strong>Acme.member/Login</strong></p>
+            </div>
         </div>
 
         <div class="progress-bar new-member-setup">
-            <div class="progress-step active" data-step="1">1. Login</div>
-            <div class="progress-step" data-step="2">2. Banking</div>
-            <div class="progress-step" data-step="3">3. Employee Details</div>
-            <div class="progress-step" data-step="4">4. Product Selection</div>
+            <div class="progress-step active" data-step="1">1. Create Login & PW</div>
+            <div class="progress-step" data-step="2">2. Enter Banking Info</div>
+            <div class="progress-step" data-step="3">3. Security Employees</div>
+            <div class="progress-step" data-step="4">4. Department Info</div>
+            <div class="progress-step" data-step="5">5. Product Selection</div>
         </div>
 
         <div class="setup-container">
@@ -91,8 +100,8 @@
 
             <!-- Step 2: Banking Information -->
             <div class="setup-step" id="step-2">
-                <h2>Step 2: Banking Information</h2>
-                <p>Your 1st payment will not be due for 6 months</p>
+                <h2>Step 2: Enter in Banking Info</h2>
+                <p>Your 1st payment will not be due for 6 months. Cancel anytime.</p>
                 <form class="step-form">
                     <div class="form-group">
                         <label for="bank-name">Bank Name *</label>
@@ -130,135 +139,130 @@
                 </div>
             </div>
 
-            <!-- Step 3: Employee Details -->
+            <!-- Step 3: Security Employees -->
             <div class="setup-step" id="step-3">
-                <h2>Step 3: Employee Details</h2>
+                <h2>Step 3: Security Employees</h2>
+                <div class="security-info">
+                    <p><strong>For security purposes, please enter in 2 additional company employees</strong></p>
+                    <p>All 3 parties will be emailed when any changes occur</p>
+                </div>
                 <form class="step-form">
                     <div class="form-group">
-                        <label for="emp-id">Employee ID *</label>
-                        <input type="text" id="emp-id" name="emp-id" required>
+                        <label for="emp2-name">Employee #2 Name *</label>
+                        <input type="text" id="emp2-name" name="emp2-name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="first-name">First Name *</label>
-                        <input type="text" id="first-name" name="first-name" required>
+                        <label for="emp2-email">Employee #2 Company Email Address *</label>
+                        <input type="email" id="emp2-email" name="emp2-email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="last-name">Last Name *</label>
-                        <input type="text" id="last-name" name="last-name" required>
+                        <label for="emp3-name">Employee #3 Name *</label>
+                        <input type="text" id="emp3-name" name="emp3-name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="date-of-birth">Date of Birth *</label>
-                        <input type="date" id="date-of-birth" name="date-of-birth" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="ssn">Social Security Number *</label>
-                        <input type="text" id="ssn" name="ssn" placeholder="XXX-XX-XXXX" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="department">Department *</label>
-                        <input type="text" id="department" name="department" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="hire-date">Hire Date *</label>
-                        <input type="date" id="hire-date" name="hire-date" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="salary">Annual Salary *</label>
-                        <input type="number" id="salary" name="salary" required>
+                        <label for="emp3-email">Employee #3 Company Email Address *</label>
+                        <input type="email" id="emp3-email" name="emp3-email" required>
                     </div>
                 </form>
                 
                 <div class="step-navigation">
                     <button class="back-btn btn btn-outline-dark" onclick="prevStep(2)">Back</button>
-                    <button class="continue-btn btn btn-outline-dark" onclick="nextStep(4)">Continue to Product Selection</button>
+                    <button class="continue-btn btn btn-outline-dark" onclick="nextStep(4)">Continue to Department Info</button>
                 </div>
             </div>
 
-            <!-- Step 4: Product Selection -->
+            <!-- Step 4: Department Contact Info -->
             <div class="setup-step" id="step-4">
-                <h2>Step 4: Product Selection</h2>
+                <h2>Step 4: Department Contact Information</h2>
                 <form class="step-form">
                     <div class="form-group">
-                        <label>Select Insurance Products:</label>
-                        <div class="product-grid">
-                            <div class="product-option">
-                                <input type="checkbox" id="life-insurance" name="products" value="life">
-                                <label for="life-insurance">Life Insurance</label>
-                                <p>Term and permanent life insurance options</p>
-                            </div>
-                            
-                            <div class="product-option">
-                                <input type="checkbox" id="health-insurance" name="products" value="health">
-                                <label for="health-insurance">Health Insurance</label>
-                                <p>Comprehensive medical coverage</p>
-                            </div>
-                            
-                            <div class="product-option">
-                                <input type="checkbox" id="dental-insurance" name="products" value="dental">
-                                <label for="dental-insurance">Dental Insurance</label>
-                                <p>Preventive and restorative dental care</p>
-                            </div>
-                            
-                            <div class="product-option">
-                                <input type="checkbox" id="vision-insurance" name="products" value="vision">
-                                <label for="vision-insurance">Vision Insurance</label>
-                                <p>Eye care and prescription coverage</p>
-                            </div>
-                            
-                            <div class="product-option">
-                                <input type="checkbox" id="disability-insurance" name="products" value="disability">
-                                <label for="disability-insurance">Disability Insurance</label>
-                                <p>Short and long-term disability protection</p>
-                            </div>
-                            
-                            <div class="product-option">
-                                <input type="checkbox" id="accident-insurance" name="products" value="accident">
-                                <label for="accident-insurance">Accident Insurance</label>
-                                <p>Coverage for unexpected accidents</p>
-                            </div>
-                        </div>
+                        <label for="dept-email">Department Email Address *</label>
+                        <input type="email" id="dept-email" name="dept-email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="coverage-amount">Preferred Coverage Amount</label>
-                        <select id="coverage-amount" name="coverage-amount">
-                            <option value="">Select amount</option>
-                            <option value="25000">$25,000</option>
-                            <option value="50000">$50,000</option>
-                            <option value="100000">$100,000</option>
-                            <option value="250000">$250,000</option>
-                            <option value="500000">$500,000</option>
-                            <option value="1000000">$1,000,000</option>
-                        </select>
+                        <label for="dept-address">Department Mailing Address *</label>
+                        <textarea id="dept-address" name="dept-address" rows="3" required></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="beneficiary">Primary Beneficiary</label>
-                        <input type="text" id="beneficiary" name="beneficiary">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="beneficiary-relationship">Relationship to Beneficiary</label>
-                        <select id="beneficiary-relationship" name="beneficiary-relationship">
-                            <option value="">Select relationship</option>
-                            <option value="spouse">Spouse</option>
-                            <option value="child">Child</option>
-                            <option value="parent">Parent</option>
-                            <option value="sibling">Sibling</option>
-                            <option value="other">Other</option>
-                        </select>
+                        <label for="dept-phone">Department Phone # (includes prompts to shorten wait times) *</label>
+                        <input type="tel" id="dept-phone" name="dept-phone" required>
                     </div>
                 </form>
                 
                 <div class="step-navigation">
                     <button class="back-btn btn btn-outline-dark" onclick="prevStep(3)">Back</button>
+                    <button class="continue-btn btn btn-outline-dark" onclick="nextStep(5)">Continue to Product Selection</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Product Selection -->
+            <div class="setup-step" id="step-5">
+                <h2>Step 5: Choose All Products Your Company Offers</h2>
+                <div class="product-info">
+                    <p><strong>Each product will include the following:</strong></p>
+                    <p>A list of products will appear</p>
+                </div>
+                <form class="step-form">
+                    <div class="form-group">
+                        <label>Select Insurance Products:</label>
+                        <div class="products-grid-setup">
+                            <!-- Row 1 -->
+                            <div class="row mb-3">
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="ANNUITY">ANNUITY</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="AUTOMOBILE">AUTOMOBILE</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="CANCER">CANCER</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="CRITICAL ILLNESS">CRITICAL ILLNESS</div></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="DISABILITY">DISABILITY</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="EARTHQUAKE">EARTHQUAKE</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="GROUP">GROUP</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="HEALTH">HEALTH</div></div>
+                            </div>
+                            
+                            <!-- Row 2 -->
+                            <div class="row mb-3">
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="HOME OWNERS">HOME OWNERS</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="LIABILITY">LIABILITY</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup text-primary" data-product="LIFE" data-special="life">LIFE</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="LONG TERM CARE">LONG TERM CARE</div></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="MOTORCYCLE">MOTORCYCLE</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="RV">RV</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="TRAVEL">TRAVEL</div></div>
+                                <div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup" data-product="WORKMAN COMP">WORKMAN COMP</div></div>
+                            </div>
+                            
+                            <!-- Row 3 - Custom Product Input -->
+                            <div class="row mb-3">
+                                <div class="col-md-8 mb-2">
+                                    <div class="product-input-box-setup" style="height: 60px; display: flex; align-items: center;">
+                                        <input type="text" id="custom-product-input-setup" placeholder="ENTER IN YOUR OWN PRODUCT...." class="form-control" style="border: none; height: 100%; background: transparent;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <button type="button" id="add-custom-product-setup" class="btn btn-success w-100" style="height: 60px;">ADD PRODUCT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Details Section -->
+                    <div id="product-details-section" style="display: none;">
+                        <h3>Enter Contact Details for Each Selected Product</h3>
+                        <p class="mb-3">For each product you've selected, please provide the department contact information:</p>
+                        <div id="selected-products-details"></div>
+                    </div>
+                </form>
+                
+                <div class="step-navigation">
+                    <button class="back-btn btn btn-outline-dark" onclick="prevStep(4)">Back</button>
                     <button class="complete-btn btn btn-outline-dark" onclick="completeSetup()">Complete Setup</button>
                 </div>
             </div>

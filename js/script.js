@@ -78,22 +78,16 @@ $(document).ready(function() {
             $('#account-type').val('checking');
             $('#account-holder').val('Reliable Life Insurance Company');
 
-            // Step 3: Company Contact Details (not employee - this is carrier admin contact)
-            $('#emp-id').val('CARRIER001');
-            $('#first-name').val('Sarah');
-            $('#last-name').val('Johnson');
-            $('#date-of-birth').val('1980-03-22');
-            $('#ssn').val('987-65-4321');
-            $('#department').val('Business Development');
-            $('#hire-date').val('2015-08-10');
-            $('#salary').val('95000');
+            // Step 3: Security Employees
+            $('#emp2-name').val('John Smith');
+            $('#emp2-email').val('john.smith@reliablelife.com');
+            $('#emp3-name').val('Lisa Brown');
+            $('#emp3-email').val('lisa.brown@reliablelife.com');
 
-            // Step 4: Product Selection (insurance products the CARRIER offers)
-            $('#life-insurance').prop('checked', true);
-            $('#health-insurance').prop('checked', true);
-            $('#coverage-amount').val('1000000'); // Higher amounts for carrier business
-            $('#beneficiary').val('Michael Johnson');
-            $('#beneficiary-relationship').val('spouse');
+            // Step 4: Department Contact Info
+            $('#dept-email').val('claims@reliablelife.com');
+            $('#dept-address').val('456 Insurance Plaza\nSuite 200\nChicago, IL 60601');
+            $('#dept-phone').val('(555) 987-6543 (Press 1, then 2, then 3 for expedited service)');
         }
 
         // Custom product field for carriers
@@ -268,20 +262,193 @@ $(document).ready(function() {
 
 // Global functions for multi-step navigation
 function nextStep(stepNumber) {
+    // Mark previous steps as completed
+    $('.progress-step[data-step]').each(function() {
+        var stepNum = parseInt($(this).data('step'));
+        if (stepNum < stepNumber) {
+            $(this).addClass('completed').removeClass('active');
+        } else if (stepNum === stepNumber) {
+            $(this).addClass('active').removeClass('completed');
+        } else {
+            $(this).removeClass('active completed');
+        }
+    });
+    
     $('.setup-step').removeClass('active');
-    $('.progress-step').removeClass('active');
     $('#step-' + stepNumber).addClass('active');
-    $('.progress-step[data-step="' + stepNumber + '"]').addClass('active');
 }
 
 function prevStep(stepNumber) {
+    // Mark steps appropriately when going back
+    $('.progress-step[data-step]').each(function() {
+        var stepNum = parseInt($(this).data('step'));
+        if (stepNum < stepNumber) {
+            $(this).addClass('completed').removeClass('active');
+        } else if (stepNum === stepNumber) {
+            $(this).addClass('active').removeClass('completed');
+        } else {
+            $(this).removeClass('active completed');
+        }
+    });
+    
     $('.setup-step').removeClass('active');
-    $('.progress-step').removeClass('active');
     $('#step-' + stepNumber).addClass('active');
-    $('.progress-step[data-step="' + stepNumber + '"]').addClass('active');
 }
 
 function completeSetup() {
     alert('Setup complete! Your member account has been created successfully.');
     window.location.href = 'member-profile.html';
 }
+
+// Product selection and details functionality for new member setup
+$(document).ready(function() {
+    // Product selection handling for new member setup - clickable boxes
+    $('.selectable-product-setup').click(function() {
+        $(this).toggleClass('selected');
+        updateProductDetails();
+    });
+    
+    // Custom product addition functionality
+    $('#add-custom-product-setup').click(function() {
+        var customProduct = $('#custom-product-input-setup').val().trim();
+        if (customProduct) {
+            // Find the best row to add to (try to fill incomplete rows first)
+            var lastProductRow = $('.products-grid-setup .row').not(':last');
+            var targetRow = null;
+            
+            // Check if any row has less than 4 products
+            lastProductRow.each(function() {
+                if ($(this).find('.col-md-3').length < 4) {
+                    targetRow = $(this);
+                    return false; // Break loop
+                }
+            });
+            
+            // If no incomplete row found, create new row before custom input row
+            if (!targetRow) {
+                targetRow = $('<div class="row mb-3"></div>');
+                $('.products-grid-setup .row:last').before(targetRow);
+            }
+            
+            // Create the new product box with proper styling
+            var customProductBox = $('<div class="col-md-3 mb-2"><div class="product-box-setup selectable-product-setup selected" data-product="' + customProduct.toUpperCase() + '">' + customProduct.toUpperCase() + '</div></div>');
+            
+            // Add click handler to the new custom product
+            customProductBox.find('.selectable-product-setup').click(function() {
+                $(this).toggleClass('selected');
+                updateProductDetails();
+            });
+            
+            // Add to the target row
+            targetRow.append(customProductBox);
+            
+            // Clear the input
+            $('#custom-product-input-setup').val('');
+            
+            // Update product details to include the new custom product
+            updateProductDetails();
+        }
+    });
+    
+    // Allow Enter key to add custom product
+    $('#custom-product-input-setup').keypress(function(e) {
+        if (e.which == 13) {
+            $('#add-custom-product-setup').click();
+        }
+    });
+    
+    function updateProductDetails() {
+        var selectedProducts = [];
+        $('.selectable-product-setup.selected').each(function() {
+            selectedProducts.push($(this).data('product'));
+        });
+        
+        var productDetailsSection = $('#product-details-section');
+        var productDetailsContainer = $('#selected-products-details');
+        
+        if (selectedProducts.length > 0) {
+            productDetailsSection.show();
+            productDetailsContainer.empty();
+            
+            selectedProducts.forEach(function(product) {
+                var productDetails = generateProductDetailsForm(product);
+                productDetailsContainer.append(productDetails);
+            });
+        } else {
+            productDetailsSection.hide();
+        }
+    }
+    
+    function generateProductDetailsForm(productName) {
+        // Pre-populated demo data for each specific product type
+        var sampleData = {
+            'LIFE': {
+                email: 'life.claims@reliablelife.com',
+                address: '456 Insurance Plaza\nLife Insurance Dept\nSuite 200\nChicago, IL 60601',
+                phone: '800-555-5555 (Hit option 3, then option 1, then option 2)'
+            },
+            'HEALTH': {
+                email: 'health.services@reliablelife.com', 
+                address: '456 Insurance Plaza\nHealth Insurance Dept\nSuite 300\nChicago, IL 60601',
+                phone: '800-555-9999 (Hit option 1, option 1, then option 3)'
+            },
+            'DISABILITY': {
+                email: 'disability.support@reliablelife.com',
+                address: '456 Insurance Plaza\nDisability Claims Dept\nSuite 400\nChicago, IL 60601', 
+                phone: '800-555-8888 (Hit option 5, then option 1, then option 1)'
+            },
+            'AUTOMOBILE': {
+                email: 'auto.claims@reliablelife.com',
+                address: '456 Insurance Plaza\nAuto Insurance Dept\nSuite 100\nChicago, IL 60601',
+                phone: '800-555-4444 (Hit option 2, then option 4, then option 1)'
+            },
+            'ANNUITY': {
+                email: 'annuity.services@reliablelife.com',
+                address: '456 Insurance Plaza\nAnnuity Department\nSuite 150\nChicago, IL 60601',
+                phone: '800-555-7777 (Hit option 1, then option 3, then option 2)'
+            },
+            'CANCER': {
+                email: 'cancer.benefits@reliablelife.com',
+                address: '456 Insurance Plaza\nCancer Insurance Dept\nSuite 250\nChicago, IL 60601',
+                phone: '800-555-6666 (Hit option 4, then option 2, then option 1)'
+            },
+            'CRITICAL ILLNESS': {
+                email: 'critical.claims@reliablelife.com',
+                address: '456 Insurance Plaza\nCritical Illness Dept\nSuite 350\nChicago, IL 60601',
+                phone: '800-555-3333 (Hit option 6, then option 1, then option 3)'
+            },
+            'HOME OWNERS': {
+                email: 'homeowners.claims@reliablelife.com',
+                address: '456 Insurance Plaza\nProperty Insurance Dept\nSuite 450\nChicago, IL 60601',
+                phone: '800-555-2222 (Hit option 7, then option 2, then option 1)'
+            }
+        };
+        
+        var data = sampleData[productName] || {
+            email: productName.toLowerCase().replace(/\s+/g, '') + '@reliablelife.com',
+            address: '456 Insurance Plaza\n' + productName + ' Department\nChicago, IL 60601', 
+            phone: '800-555-1111 (Contact for ' + productName + ' services)'
+        };
+        
+        return `
+            <div class="product-detail-form border rounded p-4 mb-4 bg-light">
+                <h4 class="text-primary mb-3">${productName} Department Contact Details</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-email" class="form-label"><strong>Department Email Address:</strong></label>
+                        <input type="email" id="${productName.toLowerCase().replace(/\s+/g, '-')}-email" class="form-control" value="${data.email}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-address" class="form-label"><strong>Department Mailing Address:</strong></label>
+                        <textarea id="${productName.toLowerCase().replace(/\s+/g, '-')}-address" class="form-control" rows="3">${data.address}</textarea>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="${productName.toLowerCase().replace(/\s+/g, '-')}-phone" class="form-label"><strong>Department Phone & Prompts:</strong></label>
+                        <input type="tel" id="${productName.toLowerCase().replace(/\s+/g, '-')}-phone" class="form-control" value="${data.phone}">
+                        <small class="form-text text-muted">Include prompts to shorten wait times</small>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+});

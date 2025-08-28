@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:app.mockflow.com)",
       "Read(/c:\\Users\\Babygrapes\\Downloads/**)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
