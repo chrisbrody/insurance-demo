@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Profile</title>
+    <title>Members Sign In Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -29,180 +29,103 @@
         </div>
     </header>
 
-    <main>
-        <div class="profile-container">
-            <!-- Carrier Information Section -->
-            <section class="company-info-section">
-                <h2>Carrier Information</h2>
-                <form class="company-info-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company-name">Insurance Carrier Name</label>
-                            <input type="text" id="company-name" name="company-name" value="ACME Insurance Company of America">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company-id">Carrier ID</label>
-                            <input type="text" id="company-id" name="company-id" value="ACME-CARRIER-001" readonly>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="contact-person">Primary Contact</label>
-                            <input type="text" id="contact-person" name="contact-person" value="Robert Martinez">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contact-email">Business Contact Email</label>
-                            <input type="email" id="contact-email" name="contact-email" value="business@acme.com">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Main Office Phone</label>
-                            <input type="tel" id="phone" name="phone" value="(800) 800-8000">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="industry">Carrier Type</label>
-                            <select id="industry" name="industry">
-                                <option value="life-health" selected>Life & Health Insurance</option>
-                                <option value="property-casualty">Property & Casualty</option>
-                                <option value="specialty">Specialty Insurance</option>
-                                <option value="reinsurance">Reinsurance</option>
-                                <option value="multi-line">Multi-line Carrier</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="address">Head Quarters Address</label>
-                            <textarea id="address" name="address" rows="3">15210 Clover Blvd
-Louisville, KY 40018</textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="employees">Company Size</label>
-                            <select id="employees" name="employees">
-                                <option value="500+" selected>500+ Employees</option>
-                                <option value="101-500">101-500 Employees</option>
-                                <option value="51-100">51-100 Employees</option>
-                                <option value="11-50">11-50 Employees</option>
-                                <option value="1-10">1-10 Employees</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="member-since">Member Since</label>
-                            <input type="text" id="member-since" name="member-since" value="January 2024" readonly>
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="update-btn">Update Carrier Info</button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Insurance Products Section -->
-            <section class="products-section">
-                <h2>Products Your Carrier Offers</h2>
-                <p>Select the insurance products your carrier company offers to customers through our platform.</p>
-                
-                <div class="products-grid">
-                    <div class="product-card highlighted">
-                        <input type="checkbox" id="life" name="products" value="life" checked>
-                        <label for="life">
-                            <h3>LIFE INSURANCE</h3>
-                            <p>Term and permanent life insurance coverage</p>
-                            <span class="status">ACTIVE</span>
-                        </label>
-                    </div>
-
-                    <div class="product-card">
-                        <input type="checkbox" id="health" name="products" value="health">
-                        <label for="health">
-                            <h3>Health Insurance</h3>
-                            <p>Comprehensive medical coverage</p>
-                            <span class="status">AVAILABLE</span>
-                        </label>
-                    </div>
-
-                    <div class="product-card">
-                        <input type="checkbox" id="dental" name="products" value="dental">
-                        <label for="dental">
-                            <h3>Dental Insurance</h3>
-                            <p>Preventive and restorative dental care</p>
-                            <span class="status">AVAILABLE</span>
-                        </label>
-                    </div>
-
-                    <div class="product-card">
-                        <input type="checkbox" id="vision" name="products" value="vision">
-                        <label for="vision">
-                            <h3>Vision Insurance</h3>
-                            <p>Eye care and prescription coverage</p>
-                            <span class="status">AVAILABLE</span>
-                        </label>
-                    </div>
-
-                    <div class="product-card">
-                        <input type="checkbox" id="disability" name="products" value="disability">
-                        <label for="disability">
-                            <h3>Disability Insurance</h3>
-                            <p>Short and long-term disability protection</p>
-                            <span class="status">AVAILABLE</span>
-                        </label>
-                    </div>
-
-                    <div class="product-card">
-                        <input type="checkbox" id="workers-comp" name="products" value="workers-comp">
-                        <label for="workers-comp">
-                            <h3>Workers' Compensation</h3>
-                            <p>Workplace injury and illness coverage</p>
-                            <span class="status">AVAILABLE</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Custom Product Input -->
-                <div class="custom-product-section">
-                    <h3>Add Custom Product</h3>
-                    <div class="form-group">
-                        <label for="custom-product">Describe additional insurance products your carrier offers:</label>
-                        <textarea id="custom-product" name="custom-product" rows="4" placeholder="Example: We also offer specialized cyber liability insurance for technology companies, international travel insurance for executives, and directors & officers coverage..."></textarea>
-                    </div>
-                    <button type="button" class="request-btn">Add Custom Product</button>
-                </div>
-
-                <div class="products-actions">
-                    <button type="button" class="save-products-btn">Save Product Offerings</button>
-                    <button type="button" class="get-quotes-btn">Update Platform Listings</button>
-                </div>
-            </section>
-
-            <!-- Account Management Section -->
-            <section class="account-section">
-                <h2>Carrier Account Management</h2>
-                <div class="account-actions">
-                    <button type="button" class="action-btn">View Member Agreement</button>
-                    <button type="button" class="action-btn">Download Marketing Materials</button>
-                    <button type="button" class="action-btn">Contact Platform Support</button>
-                    <button type="button" class="action-btn">Update Banking Info</button>
-                </div>
-            </section>
+    <div class="container mt-5 main-content">
+        <div class="text-center mb-4">
+            <h1>Members Sign In Page</h1>
         </div>
-    </main>
+        
+        <!-- Top Row - 3 info boxes -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="info-box">
+                    <h5>CARRIER NAME</h5>
+                    <p>ACME Insurance Company of America</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="info-box">
+                    <h5>HEAD QUARTERS ADDRESS</h5>
+                    <p>15210 Clover Blvd. Louisville, KY 40018</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="info-box">
+                    <h5>HOME OFFICE PHONE #</h5>
+                    <p>800-800-8000</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Full-width message box -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="message-box">
+                    ALL COMPANIES AFFILIATED WITH YOU. SEARCHES FOR ANY AFFILIANTIONS WILL BE DIRECTED TO YOUR MAIN PAGE.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Products Section -->
+        <div class="text-center mb-4">
+            <h2>CHECK OFF ALL PRODUCTS YOUR COMPANY OFFERS</h2>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="products-grid-member">
+            <div id="selected-products-list" class="mb-4" style="display: none;">
+                <h4>Selected Products:</h4>
+                <div id="selected-products-container" class="d-flex flex-wrap gap-2"></div>
+            </div>
+            
+            <!-- Available Products -->
+            <div id="available-products">
+                <!-- Row 1 -->
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="ANNUITY">ANNUITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="AUTOMOBILE">AUTOMOBILE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="CANCER">CANCER</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="CRITICAL ILLNESS">CRITICAL ILLNESS</div></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="DISABILITY">DISABILITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="EARTHQUAKE">EARTHQUAKE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="GROUP">GROUP</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="HEALTH">HEALTH</div></div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="HOME OWNERS">HOME OWNERS</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="LIABILITY">LIABILITY</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product text-primary" data-product="LIFE" data-special="life">LIFE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="LONG TERM CARE">LONG TERM CARE</div></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="MOTORCYCLE">MOTORCYCLE</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="RV">RV</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="TRAVEL">TRAVEL</div></div>
+                    <div class="col-md-3 mb-2"><div class="product-box selectable-product" data-product="WORKMAN COMP">WORKMAN COMP</div></div>
+                </div>
+                
+                <!-- Row 3 - Custom Product Input -->
+                <div class="row mb-3">
+                    <div class="col-md-8 mb-2">
+                        <div class="product-input-box" style="height: 60px; display: flex; align-items: center;">
+                            <input type="text" id="custom-product-input" placeholder="ENTER IN YOUR OWN PRODUCT...." class="form-control" style="border: none; height: 100%; background: transparent;">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <button type="button" id="add-custom-product" class="btn btn-success w-100" style="height: 60px;">ADD PRODUCT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-light border-top py-6 mt-5">
         <p class="text-center mb-0">&copy; 2025 Insurance Directory. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script>\n    <script src="js/product-selection.js"></script>
 </body>
 </html>

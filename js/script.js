@@ -197,9 +197,7 @@ $(document).ready(function() {
             window.location.href = 'term-life-contact.html';
         } else if (type.includes('whole')) {
             window.location.href = 'permanent-life-contact.html';
-        } else {
-            alert('This insurance type will be available in the full application.');
-        }
+        } 
     });
 
     // Download link clicks

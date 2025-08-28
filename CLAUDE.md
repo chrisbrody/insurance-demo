@@ -16,7 +16,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 
 ### Phase 6: Critical Wireframe Compliance Updates
 
-#### 14. **[ ] Update member-profile.html** (Page 9 of wireframe - "Members Sign In Page")
+#### 14. **[x] Update member-profile.html** (Page 9 of wireframe - "Members Sign In Page")
 **Current Issues**: Page doesn't match wireframe layout
 **Required Changes**:
 - Replace existing content with "MEMBERS SIGN IN PAGE" header
@@ -28,7 +28,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
   - Row 2: HOME OWNERS, LIABILITY, EARTHQUAKE, **LIFE** (highlighted in red border), CRITICAL ILLNESS, GROUP, TRAVEL
   - Row 3: WORKMAN COMP, "ENTER IN YOUR OWN PRODUCT...." (text input field)
 
-#### 15. **[ ] Update term-life-contact.html** (Page 7 of wireframe - Contact Grid Layout)
+#### 15. **[x] Update term-life-contact.html** (Page 7 of wireframe - Contact Grid Layout)
 **Current Issues**: Missing specific contact details from wireframe
 **Required Changes**:
 - Update to show 6 contact boxes (2 rows of 3) instead of 4

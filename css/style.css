@@ -67,6 +67,18 @@ main {
 
 .page-link {
     border: none;
+    color: rgb(33, 37, 41);
+}
+.page-link:focus {
+    z-index: 3;
+    color: white;
+    background-color: rgb(33, 37, 41);;
+    outline: 0;
+    box-shadow: 1px 1px rgb(33, 37, 41);
+}
+.active>.page-link {
+    background-color: rgb(33, 37, 41);
+    border-color: rgb(33, 37, 41);
 }
 
 /* Footer Styles */
@@ -119,28 +131,6 @@ p {
 }
 
 /* Button and Link Styles */
-.btn, button {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.btn:hover, button:hover {
-    background-color: #0056b3;
-    color: #ffffff;
-    text-decoration: none;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 
 .btn-secondary {
     background-color: #6c757d;
@@ -376,24 +366,6 @@ input[readonly] {
     text-decoration: underline;
 }
 
-/* Life insurance types page styling */
-.insurance-type-box {
-    border: 2px solid #333;
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff;
-    margin-bottom: 10px;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.insurance-type-box h4 {
-    margin: 0;
-    font-weight: bold;
-    color: #333;
-}
 
 .term-highlighted {
     border-color: #dc3545 !important;
@@ -415,7 +387,8 @@ input[readonly] {
 
 /* Contact boxes styling */
 .contact-box {
-    border: 2px solid #333;
+    border: 2px solid rgba(0, 0, 0, 0.176);
+    border-radius: 4px;
     padding: 20px;
     background-color: #fff;
     margin-bottom: 20px;
@@ -427,6 +400,10 @@ input[readonly] {
     color: #333;
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 10px;
+}
+.contact-title a {
+    display: block;
+    padding-top: 3px;
 }
 
 .contact-item {
@@ -505,7 +482,6 @@ input[readonly] {
 
 .product-box:hover {
     background-color: #f8f9fa;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
@@ -597,6 +573,9 @@ input[readonly] {
     justify-content: space-between;
     margin-top: 2rem;
     gap: 1rem;
+}
+.step-navigation.first {
+    justify-content: flex-end;
 }
 
 .continue-btn, .back-btn, .complete-btn {
@@ -809,4 +788,142 @@ input[readonly] {
     h2 {
         font-size: 1.5rem;
     }
+}
+
+/* Member Profile Page Styles (Page 9 Wireframe) */
+.info-box {
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-box h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.info-box p {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.message-box {
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+}
+
+.products-grid-member {
+    margin: 30px 0;
+}
+
+.products-grid-member .product-box {
+    border: 2px solid #333;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.products-grid-member .product-box:hover {
+    background-color: #f8f9fa;
+}
+
+.products-grid-member .product-box.life-highlighted {
+    border-color: #dc3545;
+    border-width: 3px;
+    background-color: #fff5f5;
+}
+
+.product-input-box {
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.product-input-box input {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    color: #666;
+}
+
+.product-input-box input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Life Insurance Split Page Styles (Page 10 Wireframe) */
+.life-insurance-option {
+    border: 2px solid #333;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.life-insurance-option:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.option-header {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.permanent-header {
+    background-color: #e3f2fd;
+    border-bottom: 2px solid #2196f3;
+}
+
+.term-header {
+    background-color: #fff;
+    border-bottom: 2px solid #333;
+}
+
+.option-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.info-btn {
+    background: transparent;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.info-btn:hover {
+    background-color: #f8f9fa;
 }

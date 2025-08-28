@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Insurance Types - Insurance Portal</title>
+    <title>Life Insurance Options - Insurance Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -33,14 +33,28 @@
     <main>
     <div class="container mt-5 main-content">
         <div class="text-center mb-5">
-            <h1>Choose Type Of Life Insurance</h1>
+            <h1>Choose Life Insurance Type</h1>
         </div>
         
         <div class="row mt-5">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
-                        <div class="product-highlight clickable-box" onclick="window.location.href='term-life-contact.html'">
+                        <div class="product-highlight clickable-box" onclick="window.location.href='permanent-life-contact.html'">
+                            <h5 class="card-title mb-0 text-primary">PERMANENT LIFE INSURANCE</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-2">
+                    <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#permanentModal">What is permanent life insurance?</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="insurance-type-box clickable-box" onclick="window.location.href='term-life-contact.html'">
                             <h5 class="card-title mb-0 text-primary">TERM LIFE INSURANCE</h5>
                         </div>
                     </div>
@@ -50,54 +64,37 @@
                     <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#termModal">What is Term insurance?</button>
                 </div>
             </div>
-            
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <div class="insurance-type-box clickable-box" onclick="window.location.href='permanent-life-contact.html'">
-                            <h5 class="card-title mb-0 text-primary">WHOLE LIFE INSURANCE</h5>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-2">
-                    <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#wholeModal">What is Whole Life insurance?</button>
-                </div>
-            </div>
         </div>
-        
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <div class="insurance-type-box">
-                            <h5 class="card-title mb-0">UNIVERSAL LIFE INSURANCE</h5>
-                        </div>
-                    </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Permanent Life Insurance Modal -->
+    <div class="modal" id="permanentModal" tabindex="-1" aria-labelledby="permanentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="permanentModalLabel">What is Permanent Life Insurance?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                <div class="mt-2">
-                    <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#universalModal">What is Universal Life Insurance?</button>
+                <div class="modal-body">
+                    <p>Permanent life insurance provides lifelong coverage with a cash value component that grows over time. It combines life insurance protection with a savings element, offering guaranteed premiums and death benefits.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Permanent coverage that lasts your entire life</li>
+                        <li>Cash value that grows tax-deferred</li>
+                        <li>Fixed premiums that never increase</li>
+                        <li>Guaranteed death benefit</li>
+                        <li>Ability to borrow against cash value</li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <div class="insurance-type-box">
-                            <h5 class="card-title mb-0">VARIABLE LIFE INSURANCE</h5>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-2">
-                    <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#variableModal">What is Variable insurance?</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="permanent-life-contact.html" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modals -->
     <!-- Term Life Insurance Modal -->
     <div class="modal" id="termModal" tabindex="-1" aria-labelledby="termModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -118,85 +115,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Whole Life Insurance Modal -->
-    <div class="modal" id="wholeModal" tabindex="-1" aria-labelledby="wholeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="wholeModalLabel">What is Whole Life Insurance?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Whole life insurance provides lifelong coverage with a cash value component that grows over time. It combines life insurance protection with a savings element, offering guaranteed premiums and death benefits.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Permanent coverage that lasts your entire life</li>
-                        <li>Cash value that grows tax-deferred</li>
-                        <li>Fixed premiums that never increase</li>
-                        <li>Guaranteed death benefit</li>
-                        <li>Ability to borrow against cash value</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="permanent-life-contact.html" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Universal Life Insurance Modal -->
-    <div class="modal" id="universalModal" tabindex="-1" aria-labelledby="universalModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="universalModalLabel">What is Universal Life Insurance?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Universal life insurance offers flexible premiums and death benefits with a cash value component. It provides more flexibility than whole life insurance while still offering permanent coverage.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Flexible premium payments</li>
-                        <li>Adjustable death benefit</li>
-                        <li>Cash value earns interest</li>
-                        <li>Transparency in policy costs and earnings</li>
-                        <li>Ability to skip premium payments using cash value</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Variable Life Insurance Modal -->
-    <div class="modal" id="variableModal" tabindex="-1" aria-labelledby="variableModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="variableModalLabel">What is Variable Life Insurance?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Variable life insurance allows you to invest the cash value in various investment options such as stocks, bonds, and mutual funds. The cash value and death benefit can fluctuate based on the performance of your chosen investments.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Investment control over cash value</li>
-                        <li>Potential for higher returns</li>
-                        <li>Variable death benefit based on performance</li>
-                        <li>Tax-deferred growth potential</li>
-                        <li>Investment risk borne by policyholder</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="term-life-contact.html" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
