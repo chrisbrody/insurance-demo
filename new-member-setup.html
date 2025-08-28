@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Member Setup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light border-bottom">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold fs-4" href="index.html">InsuranceSearch</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link" href="#about">About Us</a>
+                            <a class="nav-link" href="become-a-member.html">Become A Member</a>
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="setup-header">
+            <h1>New Member Setup</h1>
+            <p>Complete the following steps to set up your member account</p>
+        </div>
+
+        <div class="progress-bar new-member-setup">
+            <div class="progress-step active" data-step="1">1. Login</div>
+            <div class="progress-step" data-step="2">2. Banking</div>
+            <div class="progress-step" data-step="3">3. Employee Details</div>
+            <div class="progress-step" data-step="4">4. Product Selection</div>
+        </div>
+
+        <div class="setup-container">
+            <!-- Step 1: Login Creation -->
+            <div class="setup-step active" id="step-1">
+                <h2>Step 1: Create Your Login</h2>
+                <form class="step-form">
+                    <div class="form-group">
+                        <label for="username">Username *</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password *</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="security-question">Security Question *</label>
+                        <select id="security-question" name="security-question" required>
+                            <option value="">Select a question</option>
+                            <option value="pet">What was your first pet's name?</option>
+                            <option value="school">What elementary school did you attend?</option>
+                            <option value="mother">What is your mother's maiden name?</option>
+                            <option value="city">In what city were you born?</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="security-answer">Security Answer *</label>
+                        <input type="text" id="security-answer" name="security-answer" required>
+                    </div>
+                </form>
+                
+                <div class="step-navigation">
+                    <button class="continue-btn" onclick="nextStep(2)">Continue to Banking Info</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Banking Information -->
+            <div class="setup-step" id="step-2">
+                <h2>Step 2: Banking Information</h2>
+                <form class="step-form">
+                    <div class="form-group">
+                        <label for="bank-name">Bank Name *</label>
+                        <input type="text" id="bank-name" name="bank-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="routing-number">Routing Number *</label>
+                        <input type="text" id="routing-number" name="routing-number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="account-number">Account Number *</label>
+                        <input type="text" id="account-number" name="account-number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="account-type">Account Type *</label>
+                        <select id="account-type" name="account-type" required>
+                            <option value="">Select account type</option>
+                            <option value="checking">Checking</option>
+                            <option value="savings">Savings</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="account-holder">Account Holder Name *</label>
+                        <input type="text" id="account-holder" name="account-holder" required>
+                    </div>
+                </form>
+                
+                <div class="step-navigation">
+                    <button class="back-btn" onclick="prevStep(1)">Back</button>
+                    <button class="continue-btn" onclick="nextStep(3)">Continue to Employee Details</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Employee Details -->
+            <div class="setup-step" id="step-3">
+                <h2>Step 3: Employee Details</h2>
+                <form class="step-form">
+                    <div class="form-group">
+                        <label for="emp-id">Employee ID *</label>
+                        <input type="text" id="emp-id" name="emp-id" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Last Name *</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date-of-birth">Date of Birth *</label>
+                        <input type="date" id="date-of-birth" name="date-of-birth" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ssn">Social Security Number *</label>
+                        <input type="text" id="ssn" name="ssn" placeholder="XXX-XX-XXXX" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="department">Department *</label>
+                        <input type="text" id="department" name="department" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hire-date">Hire Date *</label>
+                        <input type="date" id="hire-date" name="hire-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="salary">Annual Salary *</label>
+                        <input type="number" id="salary" name="salary" required>
+                    </div>
+                </form>
+                
+                <div class="step-navigation">
+                    <button class="back-btn" onclick="prevStep(2)">Back</button>
+                    <button class="continue-btn" onclick="nextStep(4)">Continue to Product Selection</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Product Selection -->
+            <div class="setup-step" id="step-4">
+                <h2>Step 4: Product Selection</h2>
+                <form class="step-form">
+                    <div class="form-group">
+                        <label>Select Insurance Products:</label>
+                        <div class="product-grid">
+                            <div class="product-option">
+                                <input type="checkbox" id="life-insurance" name="products" value="life">
+                                <label for="life-insurance">Life Insurance</label>
+                                <p>Term and permanent life insurance options</p>
+                            </div>
+                            
+                            <div class="product-option">
+                                <input type="checkbox" id="health-insurance" name="products" value="health">
+                                <label for="health-insurance">Health Insurance</label>
+                                <p>Comprehensive medical coverage</p>
+                            </div>
+                            
+                            <div class="product-option">
+                                <input type="checkbox" id="dental-insurance" name="products" value="dental">
+                                <label for="dental-insurance">Dental Insurance</label>
+                                <p>Preventive and restorative dental care</p>
+                            </div>
+                            
+                            <div class="product-option">
+                                <input type="checkbox" id="vision-insurance" name="products" value="vision">
+                                <label for="vision-insurance">Vision Insurance</label>
+                                <p>Eye care and prescription coverage</p>
+                            </div>
+                            
+                            <div class="product-option">
+                                <input type="checkbox" id="disability-insurance" name="products" value="disability">
+                                <label for="disability-insurance">Disability Insurance</label>
+                                <p>Short and long-term disability protection</p>
+                            </div>
+                            
+                            <div class="product-option">
+                                <input type="checkbox" id="accident-insurance" name="products" value="accident">
+                                <label for="accident-insurance">Accident Insurance</label>
+                                <p>Coverage for unexpected accidents</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="coverage-amount">Preferred Coverage Amount</label>
+                        <select id="coverage-amount" name="coverage-amount">
+                            <option value="">Select amount</option>
+                            <option value="25000">$25,000</option>
+                            <option value="50000">$50,000</option>
+                            <option value="100000">$100,000</option>
+                            <option value="250000">$250,000</option>
+                            <option value="500000">$500,000</option>
+                            <option value="1000000">$1,000,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="beneficiary">Primary Beneficiary</label>
+                        <input type="text" id="beneficiary" name="beneficiary">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="beneficiary-relationship">Relationship to Beneficiary</label>
+                        <select id="beneficiary-relationship" name="beneficiary-relationship">
+                            <option value="">Select relationship</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="child">Child</option>
+                            <option value="parent">Parent</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </form>
+                
+                <div class="step-navigation">
+                    <button class="back-btn" onclick="prevStep(3)">Back</button>
+                    <button class="complete-btn" onclick="completeSetup()">Complete Setup</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light border-top py-6 mt-5">
+        <p class="text-center">&copy; 2025 Insurance Directory. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:app.mockflow.com)",
+      "Read(/c:\\Users\\Babygrapes\\Downloads/**)",
+      "Read(/C:\\Users\\Babygrapes\\Downloads/**)",
+      "Read(/C:\\Users\\Babygrapes\\Downloads/**)",
+      "Read(/C:\\Users\\Babygrapes\\Downloads/**)",
+      "Read(/C:\\Users\\Babygrapes\\Downloads/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
