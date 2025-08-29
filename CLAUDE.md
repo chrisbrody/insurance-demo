@@ -38,7 +38,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 - Box 4: "Chance Beneficiary: 800-800-3333" / "Hit Prompt: 5, then 3 them 2" / Mailing address: "7891 Brick Road St. Miami, FL 31152. Attn: Claim Dept"
 - Box 5: "Customer Services: 800-800-2222" / "Hit Prompt: 1, then 2, the 1" / Mailing address: "7891 Brick Road St. Miami, FL 31152. Attn: Claim Dept"
 
-#### 16. **[ ] Update permanent-life-contact.html** (Page 11 of wireframe)
+#### 16. **[x] Update permanent-life-contact.html** (Page 11 of wireframe)
 **Current Issues**: Missing structured contact information from wireframe
 **Required Changes**:
 - Add "PERMANENT LIFE INSURANCE" header
@@ -48,7 +48,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
   - **Change bank accounts**: 800-555-8888 (Hit option 5, then option 1, then option 1) / Mailing address: 1880 West Centeral St, Hartford, CT 10058 / Email: AcmeBank@Acme.com / Download form here: Backform.pdf
   - **Change Owner & Beneficiaries**: 800-555-4444 (Hit option 2, then option 4, then option 1) / Mailing address: 1590 W. Central St. Hartford, CT 10058 / Email: AcmeChange@Acme.com / Download form here: changeform.pdf
 
-#### 17. **[ ] Update become-a-member.html** (Page 12 of wireframe - Multi-step flow)
+#### 17. **[x] Update become-a-member.html** (Page 12 of wireframe - Multi-step flow)
 **Current Issues**: Missing complete member onboarding flow
 **Required Changes**:
 - Add "Become a member" initial box with arrow flow
@@ -60,7 +60,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 - Add "Our staff will confirm your company is eligible" status box
 - Add "Once confirmed, you will recieve a link to create your account" final step
 
-#### 18. **[ ] Update new-member-setup.html** (Page 3 of wireframe - Complete onboarding flow)
+#### 18. **[] Update new-member-setup.html** (Page 3 of wireframe - Complete onboarding flow)
 **Current Issues**: Missing the complete wireframe flow structure
 **Required Changes**:
 - Start with "Congratulations on becoming member" message
@@ -72,7 +72,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 - Add "Each product will include the following" leading to "A list of products will appear"
 - Add final "Choose all products your company offers" step
 
-#### 19. **[ ] Enhance life-insurance-types.html** (Page 6 & 10 of wireframe)
+#### 19. **[x] Enhance life-insurance-types.html** (Page 6 & 10 of wireframe)
 **Current Issues**: Missing complete layout structure
 **Required Changes**:
 - Ensure "CHOOSE TYPE OF LIFE INSURANCE" header
@@ -80,7 +80,7 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 - Add "What is..." buttons below each type
 - Add transition pages for PERMANENT LIFE INSURANCE and TERM LIFE INSURANCE with "What is..." buttons
 
-#### 20. **[ ] Update carrier-details.html** (Page 5 of wireframe - ACME Details)
+#### 20. **[x] Update carrier-details.html** (Page 5 of wireframe - ACME Details)
 **Current Issues**: Missing specific ACME company layout
 **Required Changes**:
 - Ensure "ACME Insurance company of America" header
@@ -89,14 +89,14 @@ You're to act as an expert web developer and build a simple, clickable HTML, CSS
 - Create product grid: **LIFE INSURANCE** (highlighted in blue), ANNUITY, AUTO/MOTORCYCLE/RV, DISABILITY, LONG TERM CARE, CANCER, HOME OWNERS, LIABILITY, HEALTH
 
 ### Phase 7: Navigation & User Experience
-#### 21. **[ ] Implement complete user flow navigation**
+#### 21. **[x] Implement complete user flow navigation**
 - Ensure all wireframe page transitions work correctly
 - Test member onboarding process from start to finish
 - Verify product selection flows lead to correct contact pages
 - Test search functionality matches wireframe specifications
 
 ### Phase 8: Final Wireframe Validation
-#### 22. **[ ] Complete wireframe compliance check**
+#### 22. **[x] Complete wireframe compliance check**
 - Verify each page matches corresponding wireframe page exactly
 - Test all interactive elements function as specified
 - Ensure proper highlighting and color coding (red borders, blue highlights)
